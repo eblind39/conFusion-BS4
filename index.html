@@ -168,7 +168,7 @@
     <div class="container">
 		<div class="row row-content">
 			<div class="col">
-				<div id="mycarousel" class="carousel slide" data-ride="carousel">
+				<div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="500">
 					<div class="carousel-inner" role="listbox">
 						<div class="carousel-item active">
 							<img class="d-block img-fluid" src="img/uthappizza.png" alt="uthappizza">
@@ -204,14 +204,9 @@
 					<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
 						<span class="carousel-control-next-icon"></span>
 					</a>
-					<div class="btn-group" id="carouselButton">
-						<button class="btn btn-danger btn-sm" id="carousel-pause">
-							<span class="fa fa-pause"></span>
-						</button>
-						<button class="btn btn-danger btn-sm" id="carousel-play">
-							<span class="fa fa-play"></span>
-						</button>
-					</div>
+					<button class="btn btn-danger btn-sm" id="carouselButton">
+						<span class="fa fa-pause"></span>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -267,13 +262,18 @@
 	<script>
 		$(document).ready(function() {
 			$('#mycarousel').carousel({ interval: 500 });
-			$('#carousel-pause').click(function() {
-				$('#mycarousel').carousel('pause');
-				alert('pause');
-			});
-			$('#carousel-play').click(function() {
-				$('#mycarousel').carousel('cycle');
-				alert('cycle');
+			
+			$('#carouselButton').click(function() {
+				var elSpan = $(this).children('span');
+				if (elSpan.hasClass('fa-pause')) {
+					$('#mycarousel').carousel('pause');
+					elSpan.removeClass('fa-pause');
+					elSpan.addClass('fa-play');
+				} else {
+					$('#mycarousel').carousel('cycle');
+					elSpan.removeClass('fa-play');
+					elSpan.addClass('fa-pause');
+				}
 			});
 		});
 	</script>
