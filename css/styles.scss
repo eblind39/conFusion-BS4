@@ -6,6 +6,23 @@ $background-pale: #D1C4E9;
 // Height variables
 $carousel-item-height: 300px;
 
+/*-START--------Assignment-4----------*/
+#reserveTableModal, #loginModal {
+    .modal-header {
+		background: $background-dark;
+		color: floralwhite;
+		
+		button {
+			color: floralwhite;
+		}
+	}
+	
+	.modal-body {
+		background: $background-pale;
+	}
+}
+/*-END-----------Assignment-4----------*/
+
 @mixin zero-margin($pad-up-dn, $pad-left-right) {
 	margin:0px auto;
 	padding: $pad-up-dn $pad-left-right;
